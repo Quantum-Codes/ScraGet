@@ -7,7 +7,7 @@ print(user.pfp,user.id)
 
 project = project.get_project()
 project.updateScratch(476678019)
-print(project.thumbnail,"\n",project.id)
+print(project.images,"\n",project.id)
 """
 forum = forum.get_post()
 forum.updateScratchDB(537944)

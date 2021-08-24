@@ -55,8 +55,9 @@ class get_user_extra:
       info = info.json()
       self.messages = info["count"]
 
-    info = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count",headers=headers)    
-    self.status_code = info.messages_status_code
+    info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)    
+    self.status_code = info.profile_status_code
     if self.status_code == 200:
       info = info.json()
-      self.messages = info["count"]
+      self.label_name = info["featured_project_label_name"]
+      self.featured_project_data = info["featured_project_data"] #need to extract further 
