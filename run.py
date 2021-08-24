@@ -1,10 +1,15 @@
-import project, user
-user = user.get_user()
-user.update("griffpatch")
-print(user.stats,user.nat_rank,user.rank)
-
+import project, user, forum
 """
+user = user.get_user()
+user.updateScratchDB("griffpatch")
+print(user.pfp,user.id)
+"""
+
 project = project.get_project()
-project.updateScratchDB(476678019)
-print(project.stats,"\n",project.ranks)
+project.updateScratch(476678019)
+print(project.thumbnail,"\n",project.id)
+"""
+forum = forum.get_post()
+forum.updateScratchDB(537944)
+print(forum.id,forum.username)
 """

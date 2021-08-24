@@ -1,5 +1,7 @@
 import requests
 
+headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
+
 class get_project:
   def __init__(self):
     pass
@@ -12,6 +14,7 @@ class get_project:
     if self.status_code == 200:
       info = info.json()
       self.id = info["id"]
+      self.thumbnail = f"https://cdn2.scratch.mit.edu/get_image/project/{self.id}_480x360.png"
       self.title  = info["title"]
       self.description = info["description"]
       self.instructions = info["instructions"]
@@ -32,7 +35,7 @@ class get_project:
       self.metadata = info["metadata"]
     
   def updateScratch(self, ID):
-    info = requests.get(f"https://api.scratch.mit.edu/projects/{ID}")
+    info = requests.get(f"https://api.scratch.mit.edu/projects/{ID}",headers=headers)
     
     self.status_code = info.status_code
     
