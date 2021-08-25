@@ -1,7 +1,7 @@
 # ScraGet
 ScraGet - A Scratch API package for Python<br>
 This is a package that makes it easy to get data form:.<br>
-1. Scratch -- Made by Scratch developers
+1. Scratch -- Made by [Scratch developers](https://github.com/LLK/scratch-rest-api)
 2. ScratchDB -- Made by [@DatOneLefty](https://Scratch.mit.edu/users/DatOneLefty)<br>
 
 This package is used **without any password!**<br>
