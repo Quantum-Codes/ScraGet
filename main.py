@@ -1,4 +1,4 @@
-from scraget import project, user, forum, studios
+from ScraGet import project, user, forum, studios
 
 lol = studios.get_studio()
 lol.updateScratchDB(208695)
