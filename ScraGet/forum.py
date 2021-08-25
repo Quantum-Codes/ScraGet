@@ -1,4 +1,5 @@
 import requests
+from ScraGet.Exceptions import PostNotFound, TopicNotFound
 
 class get_post:
   def __init__(self):
@@ -33,6 +34,9 @@ class get_post:
         self.category = info["topic"]["category"]
         self.closed = info["topic"]["closed"]
         self.deleted = info["topic"]["deleted"]
+    
+    elif self.status_code == 404:
+      raise PostNotFound(f"Post with id '{str(ID)}' not found.")
 
 class get_topic:
   def __init__(self):
@@ -51,3 +55,6 @@ class get_topic:
       self.closed = info["closed"]
       self.deleted = info["deleted"]
       self.post_count = info["post_count"]
+    
+    elif self.status_code == 404:
+      raise TopicNotFound(f"Topic with id '{str(ID)}' not found.")

@@ -1,4 +1,5 @@
 import requests
+from ScraGet.Exceptions import UserNotFound
 headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
 #"https://scratch.mit.edu/discuss/topic/96414/?page=11#post-1624859"
 #"https://scratchdb.lefty.one/v3/docs/"
@@ -26,7 +27,10 @@ class get_user:
       self.rank = info["statistics"]["ranks"]
       del info["statistics"]["ranks"]
       self.stats = info["statistics"]
-      
+    
+    elif self.status_code == 404:
+      raise Exceptions.UserNotFound("User '{user}' not found.")
+
   def updateScratch(self,user):
     info = requests.get(f"https://api.scratch.mit.edu/users/{user}",headers = headers)
     self.status_code = info.status_code
@@ -42,6 +46,9 @@ class get_user:
       self.country = info["profile"]["country"]
       self.AboutMe = info["profile"]["bio"]
       self.wiwo = info["profile"]["status"]
+    
+    elif self.status_code == 404:
+      raise UserNotFound(f"User '{user}' not found.")
 
 class get_user_extra:
   def __init__(self):
@@ -54,6 +61,8 @@ class get_user_extra:
     if self.messages_status_code == 200:
       info = info.json()
       self.messages = info["count"]
+    elif self.messages_status_code == 404:
+      raise UserNotFound(f"User '{user}' not found.")
 
     info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)    
     self.profile_status_code = info.status_code

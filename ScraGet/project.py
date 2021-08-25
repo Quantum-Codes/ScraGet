@@ -1,4 +1,5 @@
 import requests
+from ScraGet.Exceptions import ProjectNotFound
 
 headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
 
@@ -34,6 +35,9 @@ class get_project:
       self.remix = info["remix"]
       self.metadata = info["metadata"]
     
+    elif self.status_code == 404:
+      raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")
+    
   def updateScratch(self, ID):
     info = requests.get(f"https://api.scratch.mit.edu/projects/{ID}",headers=headers)
     
@@ -57,3 +61,6 @@ class get_project:
       self.shared = info["history"]["shared"]
       self.stats = info["stats"]
       self.remix = info["remix"]
+    
+    elif self.status_code == 404:
+      raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")

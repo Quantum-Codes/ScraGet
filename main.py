@@ -1,10 +1,11 @@
 from ScraGet import project, user, forum, studios
-
+"""
 lol = studios.get_studio()
 lol.updateScratchDB(208695)
 print(lol.title)
+"""
 user = user.get_user_extra()
-user.updateScratch("griffpatch_tutor")
+user.updateScratch("griffpatch_tuor")
 print(user.label_name,user.profile_status_code,"\n",
       user.featured_project_data,
       user.featured_project_id,

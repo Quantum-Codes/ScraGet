@@ -1,4 +1,5 @@
 import requests
+from ScraGet.Exceptions import StudioNotFound
 
 headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
 
@@ -26,3 +27,6 @@ class get_studio:
       self.modified = info["history"]["modified"]
       self.history = info["history"]
       self.stats = info["stats"]
+    
+    elif self.status_code == 404:
+      raise StudioNotFound(f"Studio with id '{str(ID)}' not found.")
