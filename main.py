@@ -1,4 +1,4 @@
-import project, user, forum
+from scraget import project, user, forum
 """
 user = user.get_user()
 user.updateScratchDB("griffpatch")
