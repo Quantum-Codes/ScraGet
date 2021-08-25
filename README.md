@@ -1,5 +1,11 @@
 # ScraGet
-ScraGet - A Scratch API package for Python
+ScraGet - A Scratch API package for Python<br>
+This is a package that makes it easy to get data form the Scratch API.<br>
+This package is used **without any password!**<br>
+
+## To install:<br>
+`pip install <insert name here>`(currently not published)<br>
+
 
 currently WIP.
 
@@ -8,5 +14,7 @@ user activity webscrape <br>
 Scratch day conference API <br>
 publish
 
-## This is a package that makes it easy to interact with Scratch API. No passwords required!!
+## Docs:
+documentation coming soon 9n wiki page
+
 
