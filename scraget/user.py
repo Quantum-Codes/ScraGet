@@ -62,12 +62,20 @@ class get_user_extra:
       self.label_name = info["featured_project_label_name"]
       self.featured_project_data = info["featured_project_data"] #WHY SO WEIRD URL??
       self.featured_project_id = info["featured_project"]
-      self.featured_project_label_id = info["featured_project_label_id"]
-      self.creator = self.featured_project_data["creator"]
       self.creator_id = info["user"]["pk"]
       self.user = info["user"]["username"]
-      self.change_time = self.featured_project_data["datetime_modified"]
-      self.title = self.featured_project_data["title"]
-      self.thumbnail = f"https://cdn2.scratch.mit.edu/get_image/project/{self.featured_project_id}_480x360.png"
+      if self.featured_project_data != None:
+        self.creator = self.featured_project_data["creator"]
+        self.change_time = self.featured_project_data["datetime_modified"]
+        self.title = self.featured_project_data["title"]
+        self.featured_project_label_id = info["featured_project_label_id"]
+        self.thumbnail = f"https://cdn2.scratch.mit.edu/get_image/project/{self.featured_project_id}_480x360.png"
+      else:
+        self.creator = None
+        self.change_time = None
+        self.featured_project_label_id = None
+        self.title = None
+        self.thumbnail = None
+  
       self.pfp = f"https://cdn2.scratch.mit.edu/get_image/user/{self.creator_id}_90x90.png?v="
       self.id = info["id"] #WAT IS THIS

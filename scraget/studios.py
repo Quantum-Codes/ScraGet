@@ -13,3 +13,16 @@ class get_studio:
     
     if self.status_code == 200:
       info = info.json()
+      self.id = info["id"]
+      self.title = info["title"]
+      self.owner = info["owner"]
+      self.description = info["description"]
+      self.visibility = info["visibility"]
+      self.public = info["public"]
+      self.open = info["open_to_all"]
+      self.com_allow = info["comments_allowed"]
+      self.image = info["image"]
+      self.created = info["history"]["created"]
+      self.modified = info["history"]["modified"]
+      self.history = info["history"]
+      self.stats = info["stats"]
