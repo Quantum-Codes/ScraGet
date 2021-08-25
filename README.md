@@ -4,6 +4,7 @@ This is a package that makes it easy to get data form:.<br>
 1. Scratch -- Made by Scratch developers
 2. ScratchDB -- Made by [@DatOneLefty](https://Scratch.mit.edu/users/DatOneLefty)
 This package is used **without any password!**<br>
+You don't need to Memorize any links!
 
 ## To install:<br>
 `pip install <insert name here>`(currently not published)<br>
