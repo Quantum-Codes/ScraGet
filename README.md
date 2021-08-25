@@ -15,6 +15,6 @@ Scratch day conference API <br>
 publish
 
 ## Docs:
-documentation coming soon 9n wiki page
+documentation coming soon on wiki page
 
 
