@@ -12,3 +12,6 @@ class PostNotFound(Exception):
 
 class TopicNotFound(Exception):
   pass
+
+class PageNotFound(Exception):
+  pass

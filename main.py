@@ -1,11 +1,22 @@
-from ScraGet import project, user, forum, studios
+from ScraGet import project, user, forum, studios, frontpage
+Frontpage = frontpage.get_frontpage()
+self = frontpage.get_frontpage()
+self.updateScratchDB()
+
+print(self.top_remixed[1]["thumbnail_url"])
+#self.design_studio
+#self.curated_projects
+#self.featured_studios
+#self.top_loved
+#self.featured_projects
 """
 lol = studios.get_studio()
 lol.updateScratchDB(208695)
 print(lol.title)
 """
+"""
 user = user.get_user_extra()
-user.updateScratch("griffpatch_tuor")
+user.updateScratch("griffpatch_tutor")
 print(user.label_name,user.profile_status_code,"\n",
       user.featured_project_data,
       user.featured_project_id,
@@ -17,7 +28,7 @@ print(user.label_name,user.profile_status_code,"\n",
       user.thumbnail,
       user.pfp,
       user.id)
-
+"""
 """
 project = project.get_project()
 project.updateScratch(476678019)

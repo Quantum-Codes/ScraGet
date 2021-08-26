@@ -8,15 +8,9 @@ This package is used **without any password!**<br>
 You don't need to Memorize any links!
 
 ## To install:<br>
-`pip install <insert name here>`(currently not published)<br>
+`pip install ScraGet`<br>
 
-
-currently WIP.
-
-To do:
-user activity webscrape <br>
-Scratch day conference API <br>
-publish
+WIP currently
 
 ## Docs:
 documentation coming soon on wiki page
