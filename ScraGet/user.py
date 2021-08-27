@@ -10,8 +10,8 @@ class get_user:
   def updateScratchDB(self,user):
     info = requests.get(f"https://scratchdb.lefty.one/v3/user/info/{user}")
     self.status_code = info.status_code
-    info = info.json()
     if self.status_code == 200:
+      info = info.json()
       self.username = info["username"]
       self.id = info["id"]
       self.pfp = f"https://cdn2.scratch.mit.edu/get_image/user/{self.id}_90x90.png?v="
@@ -34,8 +34,8 @@ class get_user:
   def updateScratch(self,user):
     info = requests.get(f"https://api.scratch.mit.edu/users/{user}",headers = headers)
     self.status_code = info.status_code
-    info = info.json()
     if self.status_code == 200:
+      info = info.json()
       self.username = info["username"]
       self.id = info["id"]
       self.join_date = info["history"]["joined"]
@@ -58,14 +58,17 @@ class get_user_extra:
     
     info = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count",headers=headers)    
     self.messages_status_code = info.status_code
+    
     if self.messages_status_code == 200:
       info = info.json()
       self.messages = info["count"]
+      
     elif self.messages_status_code == 404:
       raise UserNotFound(f"User '{user}' not found.")
 
     info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)    
     self.profile_status_code = info.status_code
+    
     if self.profile_status_code == 200:
       info = info.json()
       self.label_name = info["featured_project_label_name"]
@@ -73,6 +76,7 @@ class get_user_extra:
       self.featured_project_id = info["featured_project"]
       self.creator_id = info["user"]["pk"]
       self.user = info["user"]["username"]
+      
       if self.featured_project_data != None:
         self.creator = self.featured_project_data["creator"]
         self.change_time = self.featured_project_data["datetime_modified"]
