@@ -1,3 +1,4 @@
+#uploaded this as... it was difficult for me to make. so now others can copy this format (and hopefully credit me)
 import setuptools
 
 with open("README.md", "r", encoding="utf-8") as fh:
