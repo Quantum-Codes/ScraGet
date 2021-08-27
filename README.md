@@ -1,5 +1,6 @@
 # ScraGet
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![PyPI download total](https://img.shields.io/pypi/dt/ScraGet.svg)](https://pypi.python.org/pypi/ScraGet/)
 
 ScraGet - A Scratch API package for Python<br>
 This is a package that makes it easy to get data form:.<br>
