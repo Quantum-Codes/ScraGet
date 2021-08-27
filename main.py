@@ -1,6 +1,7 @@
-from ScraGet import project, user, forum, studios, frontpage
-Frontpage = frontpage.get_frontpage()
-self = frontpage.get_frontpage()
+#from ScraGet import project, user, forum, studios, frontpage
+import ScraGet
+Frontpage = ScraGet.frontpage.get_frontpage()
+self = ScraGet.frontpage.get_frontpage()
 self.updateScratchDB()
 
 print(self.top_remixed[1]["thumbnail_url"])

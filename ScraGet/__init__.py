@@ -1,9 +1,10 @@
-"""
-from ScraGet.forum import forum
-from ScraGet.project import project
-from ScraGet.studios import studios
-"""
+from ScraGet.forum import get_post, get_topic
+from ScraGet.project import get_project
+from ScraGet.studios import get_studio
 from ScraGet.user import get_user, get_user_extra
+from ScraGet.frontpage import get_frontpage
+
+#from ScraGet import frontpage
 
 #import ScraGet
 
