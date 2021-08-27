@@ -25,15 +25,15 @@ documentation coming soon on wiki page
 ## Basic usage:
 ### Get user ID from scratch
 ```python
-import ScraGet #import package
-user = ScraGet.user.get_user() #create object
+from ScraGet import ScraGet #import package
+user = ScraGet.get_user() #create object
 user.updateScratch("griffpatch") #update data
 print(user.id) #print required info
 ```
 ### Get user ID from scratchDB
 ```python
-import ScraGet #import package
-user = ScraGet.user.get_user() #create object
+from ScraGet import ScraGet #import package
+user = ScraGet.get_user() #create object
 user.updateScratchDB("griffpatch") #update data
 print(user.id) #print required info
 ```
