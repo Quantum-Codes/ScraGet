@@ -1,6 +1,9 @@
 # ScraGet
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
-[![PyPI download total](https://img.shields.io/pypi/dt/ScraGet.svg)](https://pypi.python.org/pypi/ScraGet/)
+
+[![PyPI Latest Release](https://img.shields.io/pypi/v/ScraGet.svg)](https://pypi.org/project/ScraGet/)
+[![Package Status](https://img.shields.io/pypi/status/ScraGet.svg)](https://pypi.org/project/ScraGet/)
+[![Downloads](https://static.pepy.tech/personalized-badge/ScraGet?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/ScraGet)
 
 ScraGet - A Scratch API package for Python<br>
 This is a package that makes it easy to get data form:.<br>
