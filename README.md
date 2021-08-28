@@ -1,6 +1,6 @@
 # ScraGet
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/) <br>
-[![Downloads](https://static.pepy.tech/personalized-badge/scraget?period=total&units=none&left_color=black&right_color=blue&left_text=Downloads)](https://pepy.tech/project/scraget)
+[![Downloads](https://static.pepy.tech/personalized-badge/scraget?period=total&units=none&left_color=grey&right_color=blue&left_text=Downloads)](https://pepy.tech/project/scraget)
 [![PyPI Latest Release](https://img.shields.io/pypi/v/ScraGet.svg)](https://pypi.org/project/ScraGet/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/ScraGet.svg)](https://pypi.python.org/pypi/ScraGet/)
 
