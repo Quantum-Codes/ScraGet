@@ -9,7 +9,7 @@ class get_studio:
   
   def updateScratchDB(self,ID):
     info = requests.get(f"https://api.scratch.mit.edu/studios/{ID}",headers=headers)
-    
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
     if self.status_code == 200:

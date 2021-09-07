@@ -9,7 +9,7 @@ class get_project:
   
   def updateScratchDB(self,ID):
     info = requests.get(f"https://scratchdb.lefty.one/v3/project/info/{ID}")
-    
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
     if self.status_code == 200:
@@ -40,7 +40,7 @@ class get_project:
     
   def updateScratch(self, ID):
     info = requests.get(f"https://api.scratch.mit.edu/projects/{ID}",headers=headers)
-    
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
     if self.status_code == 200:
@@ -64,3 +64,4 @@ class get_project:
     
     elif self.status_code == 404:
       raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")
+

@@ -2,9 +2,9 @@
 from ScraGet import ScraGet
 Frontpage = ScraGet.get_frontpage()
 self = ScraGet.get_frontpage()
-self.updateScratchDB()
+self.updateScratch()
 
-print(self.top_remixed[1]["thumbnail_url"])
+print(self.top_remixed[1]["thumbnail_url"], self.response_time)
 #self.design_studio
 #self.curated_projects
 #self.featured_studios

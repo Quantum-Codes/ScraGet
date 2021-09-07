@@ -9,6 +9,7 @@ class get_user:
   
   def updateScratchDB(self,user):
     info = requests.get(f"https://scratchdb.lefty.one/v3/user/info/{user}")
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     if self.status_code == 200:
       info = info.json()
@@ -33,6 +34,7 @@ class get_user:
 
   def updateScratch(self,user):
     info = requests.get(f"https://api.scratch.mit.edu/users/{user}",headers = headers)
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     if self.status_code == 200:
       info = info.json()
@@ -56,7 +58,8 @@ class get_user_extra:
   
   def updateScratch(self,user):
     
-    info = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count",headers=headers)    
+    info = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count",headers=headers)
+    self.messages_response_time = info.elapsed.total_seconds()
     self.messages_status_code = info.status_code
     
     if self.messages_status_code == 200:
@@ -72,7 +75,7 @@ class get_user_extra:
     if self.profile_status_code == 200:
       info = info.json()
       self.label_name = info["featured_project_label_name"]
-      self.featured_project_data = info["featured_project_data"] #WHY SO WEIRD URL??
+      self.featured_project_data = info["featured_project_data"]
       self.featured_project_id = info["featured_project"]
       self.creator_id = info["user"]["pk"]
       self.user = info["user"]["username"]

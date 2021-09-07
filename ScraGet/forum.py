@@ -7,7 +7,7 @@ class get_post:
   
   def updateScratchDB(self,ID):
     info = requests.get(f"https://scratchdb.lefty.one/v3/forum/post/info/{ID}")
-    
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
     if self.status_code == 200:
@@ -44,7 +44,7 @@ class get_topic:
   
   def updateScratchDB(self,ID):
     info = requests.get(f"https://scratchdb.lefty.one/v3/forum/topic/info/{ID}")
-    
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
     if self.status_code == 200:

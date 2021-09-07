@@ -7,9 +7,9 @@ class get_frontpage:
   def __init__(self):
     pass
   
-  def updateScratchDB(self):
+  def updateScratch(self):
     info = requests.get(f"https://api.scratch.mit.edu/proxy/featured",headers=headers)
-    
+    self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
     if self.status_code == 200:
