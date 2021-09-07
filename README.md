@@ -35,5 +35,3 @@ user = ScraGet.get_user() #create object
 user.updateScratchDB("griffpatch") #update data
 print(user.id) #print required info
 ```
-
-Docs on the wiki page coming soon!
