@@ -71,6 +71,7 @@ class get_user_extra:
 
     info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)    
     self.profile_status_code = info.status_code
+    self.profile_response_time = info.elapsed.total_seconds()
     
     if self.profile_status_code == 200:
       info = info.json()
