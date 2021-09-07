@@ -18,8 +18,7 @@ You don't need to Memorize any links!
 ## To install:<br>
 `pip install ScraGet`<br>
 
-## Docs:
-documentation coming soon on wiki page
+## Docs: https://github.com/Quantum-Codes/ScraGet/wiki
 
 ## Basic usage:
 ### Get user ID from scratch
