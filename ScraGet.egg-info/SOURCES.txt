@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+ScraGet/Exceptions.py
+ScraGet/ScraGet.py
+ScraGet/__init__.py
+ScraGet/forum.py
+ScraGet/frontpage.py
+ScraGet/project.py
+ScraGet/studios.py
+ScraGet/user.py
+ScraGet.egg-info/PKG-INFO
+ScraGet.egg-info/SOURCES.txt
+ScraGet.egg-info/dependency_links.txt
+ScraGet.egg-info/top_level.txt
