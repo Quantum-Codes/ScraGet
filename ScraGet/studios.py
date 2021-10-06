@@ -16,7 +16,7 @@ class get_studio:
       info = info.json()
       self.id = info["id"]
       self.title = info["title"]
-      self.owner = info["owner"]
+      self.host_id = info["host"]
       self.description = info["description"]
       self.visibility = info["visibility"]
       self.public = info["public"]

@@ -10,6 +10,11 @@ print(self.top_remixed[1]["thumbnail_url"], self.response_time)
 #self.featured_studios
 #self.top_loved
 #self.featured_projects
+from ScraGet import ScraGet #import package
+studios = ScraGet.get_studio() #create object
+studios.updateScratch(28380734) #update data
+print(studios.host_id) #print required info from data*
+
 """
 lol = studios.get_studio()
 lol.updateScratchDB(208695)
