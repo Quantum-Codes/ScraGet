@@ -15,6 +15,11 @@ studios = ScraGet.get_studio() #create object
 studios.updateScratch(28380734) #update data
 print(studios.host_id) #print required info from data*
 
+data = ["hello"]
+
+from ScraGet import ScraGet
+cloud = ScraGet.encoder()
+print(cloud.encode(data))
 """
 lol = studios.get_studio()
 lol.updateScratchDB(208695)
