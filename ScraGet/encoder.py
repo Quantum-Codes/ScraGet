@@ -1,7 +1,6 @@
-"""CONVERT TO CLASSES THEN ADD TO SCRAGET FOLDER. DELETE THIS FILE"""
-
+from ScraGet.Exceptions import InvalidValue
 import string
-#new
+
 chars = list("•" + string.ascii_uppercase + string.digits + ".,!?/\|" + "'" + '"' + "()+-=:;[]^_%{}@#¦" + string.ascii_lowercase + " ~`*&$<>™®©")
 
 class encoder:
@@ -15,10 +14,14 @@ class encoder:
       encoded = encoded + "00"
     return encoded
 
-  def decode(self,val):
+  def decode(self,val): #decode any numeric val: 12300300
     val = str(val)
     I = 0
     decoded = []
+    if (len(val) % 2) == 1 or not val.isdigit():
+      raise InvalidValue("The value to decode is invalid.")
+    if val[-2:] != "00":
+      val += "00"
     while I < len(val):
       temp = ""
       while val[I] + val[I+1] != "00":

@@ -19,7 +19,7 @@ data = ["hello"]
 
 from ScraGet import ScraGet
 cloud = ScraGet.encoder()
-print(cloud.encode(data))
+print(cloud.decode(70))
 """
 lol = studios.get_studio()
 lol.updateScratchDB(208695)

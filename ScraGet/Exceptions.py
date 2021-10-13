@@ -15,3 +15,6 @@ class TopicNotFound(Exception):
 
 class PageNotFound(Exception):
   pass
+
+class InvalidValue(Exception):
+  pass
