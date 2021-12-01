@@ -4,9 +4,14 @@ import string
 chars = list("•" + string.ascii_uppercase + string.digits + ".,!?/\|" + "'" + '"' + "()+-=:;[]^_%{}@#¦" + string.ascii_lowercase + " ~`*&$<>™®©")
 
 class encoder:
-  def encode(self,val): #input list as: encode(["hello"])
+  def encode(self,val):
+    """
+    Input a list to encode. Example: encode(["hello"])
+    It can me a list of more than 1 item.
+    Returns a number in str format.
+    """
     encoded = ""
-    x = [str(i) for i in val] #googled ;-;
+    x = [str(i) for i in val]
     
     for item in x:
       for letter in item:
@@ -14,7 +19,12 @@ class encoder:
       encoded = encoded + "00"
     return encoded
 
-  def decode(self,val): #decode any numeric val: 12300300
+  def decode(self,val):
+    """
+    Decode any numeric value (int) such as: 12300300
+    Can decode any encoded value.
+    The encoded value must be encoded through ScraGet's encoder only.
+    """
     val = str(val)
     I = 0
     decoded = []

@@ -8,7 +8,14 @@ class get_studio:
     pass
   
   def updateScratch(self,ID):
+    """
+    Requests to Scratch API for studio data.
+
+    Params: ID - Mandatory. Put the studio ID in str or int format.
+    """
+
     info = requests.get(f"https://api.scratch.mit.edu/studios/{ID}",headers=headers)
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     

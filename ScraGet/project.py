@@ -8,7 +8,14 @@ class get_project:
     pass
   
   def updateScratchDB(self,ID):
+    """
+    Requests to ScratchDB API made by DatOneLefty for project data.
+
+    Params: ID - Mandatory. Put the post ID in str or int format.
+    """
+
     info = requests.get(f"https://scratchdb.lefty.one/v3/project/info/{ID}")
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
@@ -39,7 +46,14 @@ class get_project:
       raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")
     
   def updateScratch(self, ID):
+    """
+    Requests to Scratch API for project data.
+
+    Params: ID - Mandatory. Put the project ID in str or int format.
+    """
+
     info = requests.get(f"https://api.scratch.mit.edu/projects/{ID}",headers=headers)
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     

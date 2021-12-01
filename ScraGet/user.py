@@ -8,7 +8,14 @@ class get_user:
     pass
   
   def updateScratchDB(self,user):
+    """
+    Requests to ScratchDB API made by DatOneLefty for user data.
+
+    Params: user - Mandatory. Put the username in str format.
+    """
+
     info = requests.get(f"https://scratchdb.lefty.one/v3/user/info/{user}")
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     if self.status_code == 200:
@@ -33,7 +40,13 @@ class get_user:
       raise Exceptions.UserNotFound("User '{user}' not found.")
 
   def updateScratch(self,user):
+    """
+    Requests to Scratch API for user data
+    Params: user - Mandatory. Put the username in str format.
+    """
+
     info = requests.get(f"https://api.scratch.mit.edu/users/{user}",headers = headers)
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     if self.status_code == 200:
@@ -57,8 +70,17 @@ class get_user_extra:
     pass
   
   def updateScratch(self,user):
+    """
+    Requests to Scratch API for extra user data.
+    Extra data: Message count, profile featured projects, etc
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+    
+    Params: user - Mandatory. Put the username in str format.
+    """
+
     
     info = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count",headers=headers)
+    self.messages_response_object = info
     self.messages_response_time = info.elapsed.total_seconds()
     self.messages_status_code = info.status_code
     
@@ -69,7 +91,8 @@ class get_user_extra:
     elif self.messages_status_code == 404:
       raise UserNotFound(f"User '{user}' not found.")
 
-    info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)    
+    info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)
+    self.profile_response_object = info
     self.profile_status_code = info.status_code
     self.profile_response_time = info.elapsed.total_seconds()
     
@@ -99,8 +122,9 @@ class get_user_extra:
 
 
 
-      
-    info = requests.get(f"",headers=headers)#working on
+"""   
+    info = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count/",headers=headers)#working on
+    self.messages_response_object = info
     self.messages_response_time = info.elapsed.total_seconds()
     self.messages_status_code = info.status_code
     
@@ -110,3 +134,4 @@ class get_user_extra:
       
     elif self.messages_status_code == 404:
       raise UserNotFound(f"User '{user}' not found.")
+"""

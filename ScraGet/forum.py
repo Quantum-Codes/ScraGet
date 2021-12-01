@@ -6,7 +6,13 @@ class get_post:
     pass
   
   def updateScratchDB(self,ID):
+    """
+    Requests to ScratchDB API made by DatOneLefty for post data.
+
+    Params: ID - Mandatory. Put the post ID in str or int format.
+    """
     info = requests.get(f"https://scratchdb.lefty.one/v3/forum/post/info/{ID}")
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
@@ -43,7 +49,14 @@ class get_topic:
     pass
   
   def updateScratchDB(self,ID):
+    """
+    Requests to ScratchDB API made by DatOneLefty for topic data.
+
+    Params: ID - Mandatory. Put the topic ID in str or int format.
+    """
+
     info = requests.get(f"https://scratchdb.lefty.one/v3/forum/topic/info/{ID}")
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     

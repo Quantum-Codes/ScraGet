@@ -3,30 +3,33 @@ from ScraGet import ScraGet
 Frontpage = ScraGet.get_frontpage()
 self = ScraGet.get_frontpage()
 self.updateScratch()
+print(self.updateScratch.__doc__)
 
 print(self.top_remixed[1]["thumbnail_url"], self.response_time)
+print(self.response_object)
 #self.design_studio
 #self.curated_projects
 #self.featured_studios
 #self.top_loved
 #self.featured_projects
-from ScraGet import ScraGet #import package
+"""
+#from ScraGet import ScraGet #import package
 studios = ScraGet.get_studio() #create object
 studios.updateScratch(28380734) #update data
 print(studios.host_id) #print required info from data*
 
 data = ["hello"]
 
-from ScraGet import ScraGet
+#from ScraGet import ScraGet
 cloud = ScraGet.encoder()
 print(cloud.decode(70))
-"""
-lol = studios.get_studio()
-lol.updateScratchDB(208695)
+
+lol = ScraGet.get_studio()
+lol.updateScratch(208695)
 print(lol.title)
-"""
-"""
-user = user.get_user_extra()
+
+
+user = ScraGet.get_user_extra()
 user.updateScratch("griffpatch_tutor")
 print(user.label_name,user.profile_status_code,"\n",
       user.featured_project_data,
@@ -39,14 +42,14 @@ print(user.label_name,user.profile_status_code,"\n",
       user.thumbnail,
       user.pfp,
       user.id)
-"""
-"""
-project = project.get_project()
+
+
+project = ScraGet.get_project()
 project.updateScratch(476678019)
 print(project.images,"\n",project.id)
-"""
-"""
-forum = forum.get_post()
+
+
+forum = ScraGet.get_post()
 forum.updateScratchDB(537944)
-print(forum.id,forum.username)
+print(forum.id,forum.username,forum.updateScratchDB.__doc__)
 """

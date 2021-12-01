@@ -8,7 +8,12 @@ class get_frontpage:
     pass
   
   def updateScratch(self):
+    """
+    Requests to Scratch API for frontpage data.
+    """
+
     info = requests.get(f"https://api.scratch.mit.edu/proxy/featured",headers=headers)
+    self.response_object = info
     self.response_time = info.elapsed.total_seconds()
     self.status_code = info.status_code
     
