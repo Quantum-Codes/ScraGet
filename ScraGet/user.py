@@ -96,3 +96,17 @@ class get_user_extra:
   
       self.pfp = f"https://cdn2.scratch.mit.edu/get_image/user/{self.creator_id}_90x90.png?v="
       self.id = info["id"] #WAT IS THIS
+
+
+
+      
+    info = requests.get(f"",headers=headers)#working on
+    self.messages_response_time = info.elapsed.total_seconds()
+    self.messages_status_code = info.status_code
+    
+    if self.messages_status_code == 200:
+      info = info.json()
+      self.messages = info["count"]
+      
+    elif self.messages_status_code == 404:
+      raise UserNotFound(f"User '{user}' not found.")
