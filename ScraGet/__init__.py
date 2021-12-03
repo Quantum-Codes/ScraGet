@@ -6,7 +6,6 @@ from ScraGet.frontpage import get_frontpage
 from ScraGet.encoder import encoder
 from ScraGet import ScraGet
 
-print("ScraGet: https://github.com/Quantum-Codes/ScraGet")
 
 """
 ScraGet - A package used to make it easier to get data from the Scratch API.
