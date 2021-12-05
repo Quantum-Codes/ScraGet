@@ -6,6 +6,8 @@ user.updateScratch(100)
 print(user.updateScratch.__annotations__)
 print(user.id)
 
+#user.updateScratch
+
 """
 Frontpage = ScraGet.get_frontpage()
 self = ScraGet.get_frontpage()
