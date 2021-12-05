@@ -39,9 +39,10 @@ class get_user:
     elif self.status_code == 404:
       raise Exceptions.UserNotFound("User '{user}' not found.")
 
-  def updateScratch(self,user):
+  def updateScratch(self, user: str) -> None:
     """
-    Requests to Scratch API for user data
+    Requests to Scratch API for user data 
+    
     Params: user - Mandatory. Put the username in str format.
     """
 
@@ -69,7 +70,7 @@ class get_user_extra:
   def __init__(self):
     pass
   
-  def updateScratch(self,user):
+  def updateScratch(self, user):
     """
     Requests to Scratch API for extra user data.
     Extra data: Message count, profile featured projects, etc

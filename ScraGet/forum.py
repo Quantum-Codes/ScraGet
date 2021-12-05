@@ -5,7 +5,7 @@ class get_post:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,ID):
+  def updateScratchDB(self,ID) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for post data.
 
