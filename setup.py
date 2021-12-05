@@ -15,7 +15,7 @@ setuptools.setup(
     url="https://github.com/Quantum-Codes/ScraGet",
     license='MIT',#added
     packages=['ScraGet'],#added
-    install_requires=["requests","string"],
+    install_requires=["requests"],
     keywords="Scratch, ScraGet, API, ScratchAPI",
     project_urls={
         "Bug Tracker": "https://github.com/Quantum-Codes/ScraGet/issues",
