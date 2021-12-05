@@ -7,7 +7,7 @@ class get_user:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,user):
+  def updateScratchDB(self,user : str) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for user data.
 
@@ -70,7 +70,7 @@ class get_user_extra:
   def __init__(self):
     pass
   
-  def updateScratch(self, user):
+  def updateScratch(self, user : str) -> None:
     """
     Requests to Scratch API for extra user data.
     Extra data: Message count, profile featured projects, etc

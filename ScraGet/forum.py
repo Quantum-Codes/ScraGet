@@ -5,11 +5,11 @@ class get_post:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,ID) -> None:
+  def updateScratchDB(self,ID : str) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for post data.
 
-    Params: ID - Mandatory. Put the post ID in str or int format.
+    Params: ID - Mandatory. Put the post ID in str format.
     """
     info = requests.get(f"https://scratchdb.lefty.one/v3/forum/post/info/{ID}")
     self.response_object = info
@@ -48,7 +48,7 @@ class get_topic:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,ID):
+  def updateScratchDB(self,ID : str) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for topic data.
 

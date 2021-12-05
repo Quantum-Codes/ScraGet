@@ -7,11 +7,11 @@ class get_studio:
   def __init__(self):
     pass
   
-  def updateScratch(self,ID):
+  def updateScratch(self,ID : str) -> None:
     """
     Requests to Scratch API for studio data.
 
-    Params: ID - Mandatory. Put the studio ID in str or int format.
+    Params: ID - Mandatory. Put the studio ID in str format.
     """
 
     info = requests.get(f"https://api.scratch.mit.edu/studios/{ID}",headers=headers)

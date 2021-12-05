@@ -4,7 +4,7 @@ import string
 chars = list("•" + string.ascii_uppercase + string.digits + ".,!?/\|" + "'" + '"' + "()+-=:;[]^_%{}@#¦" + string.ascii_lowercase + " ~`*&$<>™®©")
 
 class encoder:
-  def encode(self,val : list):
+  def encode(self,val : list) -> str:
     """
     Input a list to encode. Example: encode(["hello"])
     It can me a list of more than 1 item.
@@ -19,7 +19,7 @@ class encoder:
       encoded = encoded + "00"
     return encoded
 
-  def decode(self,val : str):
+  def decode(self,val : str) -> list:
     """
     Decode any numeric value in str format such as: :"12300300"
     Can decode any encoded value.

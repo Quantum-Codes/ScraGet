@@ -7,11 +7,11 @@ class get_project:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,ID):
+  def updateScratchDB(self,ID : str) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for project data.
 
-    Params: ID - Mandatory. Put the post ID in str or int format.
+    Params: ID - Mandatory. Put the post ID in str format.
     """
 
     info = requests.get(f"https://scratchdb.lefty.one/v3/project/info/{ID}")
@@ -45,11 +45,11 @@ class get_project:
     elif self.status_code == 404:
       raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")
     
-  def updateScratch(self, ID):
+  def updateScratch(self, ID : str) -> None:
     """
     Requests to Scratch API for project data.
 
-    Params: ID - Mandatory. Put the project ID in str or int format.
+    Params: ID - Mandatory. Put the project ID in str format.
     """
 
     info = requests.get(f"https://api.scratch.mit.edu/projects/{ID}",headers=headers)
