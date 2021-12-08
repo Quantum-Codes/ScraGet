@@ -13,7 +13,10 @@ This is a package that makes it easy to get data form:.<br>
 <br>Pypi: https://pypi.python.org/pypi/ScraGet/
 
 This package is used **without any password!**<br>
-You don't need to Memorize any links!
+You don't need to Memorize any links!<br><br>
+**Bonus features:**<br>
+1. Cloud encoding/decoding with pre-made scratch script too!<br>
+2. Cloud variable change event! (coming soon)
 
 ## To install:<br>
 `pip install ScraGet`<br>
