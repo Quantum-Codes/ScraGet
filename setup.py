@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="ScraGet",
-    version="0.1.5",
+    version="0.1.9",
     #author="QuantumCodes",
     #author_email="author@example.com",
     description="A package that makes interacting with Scratch API easier",
@@ -18,6 +18,7 @@ setuptools.setup(
     install_requires=["requests"],
     keywords="Scratch, ScraGet, API, ScratchAPI, Scratch-API, Scratch3, ScratchCloud, Cloud",
     project_urls={
+        "Source": "https://github.com/Quantum-Codes/ScraGet/tree/master/ScraGet",
         "Bug Tracker": "https://github.com/Quantum-Codes/ScraGet/issues",
         "Documentation": "https://github.com/Quantum-Codes/ScraGet/wiki"
     },

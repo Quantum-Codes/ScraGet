@@ -6,13 +6,13 @@
 
 ScraGet - A Scratch API package for Python<br>
 This is a package that makes it easy to get data form:.<br>
-1. Scratch -- Made by [Scratch developers](https://github.com/LLK/scratch-rest-api)
+1. Scratch -- Made by [Scratch developers](https://github.com/LLK/scratch-rest-api)<br>
 2. ScratchDB -- Made by [@DatOneLefty](https://Scratch.mit.edu/users/DatOneLefty)<br>
 
 <br>Code at: https://github.com/Quantum-Codes/ScraGet
 <br>Pypi: https://pypi.python.org/pypi/ScraGet/
 
-This package is used **without any password!**<br>
+This package is used **without any passwords!**<br>
 You don't need to Memorize any links!<br><br>
 **Bonus features:**<br>
 1. Cloud encoding/decoding with pre-made scratch script too!<br>
