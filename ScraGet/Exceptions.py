@@ -24,7 +24,12 @@ class PageNotFound(Exception):
 
 class InvalidValue(Exception):
   """
-  Raised when invalid value is passed through in the decoder.
-  Check whether the input is int, is of even digits, ends with "00" and encoded only with the ScraGet encoder.
+  Raised when invalid value is passed in any arguement.
+  
+  error with encoder?: 
+    Check whether the input is int, is of even digits, ends with  "00" and encoded only with the ScraGet encoder.
+
+  error with cloud scanner?
+  Check whether value is more than  0.2. if less, increase it.
   """
   pass

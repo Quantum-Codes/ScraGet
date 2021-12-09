@@ -11,7 +11,7 @@ class get_project:
     """
     Requests to ScratchDB API made by DatOneLefty for project data.
 
-    Params: ID - Mandatory. Put the post ID in str format.
+    Params: ID - Mandatory. Put the project ID in str format.
     """
 
     info = requests.get(f"https://scratchdb.lefty.one/v3/project/info/{ID}")
@@ -78,4 +78,5 @@ class get_project:
     
     elif self.status_code == 404:
       raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")
+
 

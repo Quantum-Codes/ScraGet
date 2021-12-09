@@ -1,13 +1,23 @@
 #from ScraGet import project, user, forum, studios, frontpage
 from ScraGet import ScraGet
-
+"""
 user = ScraGet.get_user()
 user.updateScratch(100)
 print(user.updateScratch.__annotations__)
 print(user.id)
 
-#user.updateScratch
+project = ScraGet.get_cloud_data()
+project.updateCloud("431041540")
+print(len(project.cloud_data))
+print("\n")
+"""
+cloud = ScraGet.cloud()
 
+@cloud.scan(ID="542800922",delay=1)
+def hello(change):
+  print(change.var)
+
+print("----------------------") #add threading so this can be printed and option to use Thread or continue in main thread
 """
 Frontpage = ScraGet.get_frontpage()
 self = ScraGet.get_frontpage()
@@ -26,7 +36,8 @@ print(self.response_object)
 studios = ScraGet.get_studio() #create object
 studios.updateScratch(28380734) #update data
 print(studios.host_id) #print required info from data*
-"""
+
+
 data = ["hello"]
 
 #from ScraGet import ScraGet
@@ -34,7 +45,7 @@ cloud = ScraGet.encoder()
 print(cloud.encode(data))
 print(cloud.decode("05"))
 
-"""
+
 lol = ScraGet.get_studio()
 lol.updateScratch(208695)
 print(lol.title)
