@@ -1,5 +1,6 @@
 #from ScraGet import project, user, forum, studios, frontpage
 from ScraGet import ScraGet
+import time
 """
 user = ScraGet.get_user()
 user.updateScratch(100)
@@ -12,12 +13,18 @@ print(len(project.cloud_data))
 print("\n")
 """
 cloud = ScraGet.cloud()
-
-@cloud.scan(ID="542800922",delay=1)
+#542800922
+#https://scratch.mit.edu/projects/612229554/
+@cloud.scan(ID="612229554",delay=1,NewThread=False)
 def hello(change):
   print(change.var)
+  cloud.stop = True
 
-print("----------------------") #add threading so this can be printed and option to use Thread or continue in main thread
+time.sleep(5)
+cloud.stop = True #stops the new thread
+time.sleep(2)
+#print(cloud.thread.is_alive())
+print("----------------------")
 """
 Frontpage = ScraGet.get_frontpage()
 self = ScraGet.get_frontpage()
