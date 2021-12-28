@@ -10,8 +10,8 @@ class get_user:
   def updateScratchDB(self,user : str) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for user data.
-
-    Params: user - Mandatory. Put the username in str format.
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+   P arams: user - Mandatory. Put the username in str format.
     """
 
     info = requests.get(f"https://scratchdb.lefty.one/v3/user/info/{user}")
@@ -37,12 +37,12 @@ class get_user:
       self.stats = info["statistics"]
     
     elif self.status_code == 404:
-      raise Exceptions.UserNotFound("User '{user}' not found.")
+      raise UserNotFound("User '{user}' not found.")
 
   def updateScratch(self, user: str) -> None:
     """
-    Requests to Scratch API for user data 
-    
+    Requests to Scratch API for user data .
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.    
     Params: user - Mandatory. Put the username in str format.
     """
 
@@ -70,10 +70,9 @@ class get_user_extra:
   def __init__(self):
     pass
   
-  def updateScratch(self, user : str) -> None:
+  def get_message_count(self, user : str) -> None:
     """
-    Requests to Scratch API for extra user data.
-    Extra data: Message count, profile featured projects, etc
+    Requests to Scratch API for message count.
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
     Params: user - Mandatory. Put the username in str format.
@@ -91,6 +90,14 @@ class get_user_extra:
       
     elif self.messages_status_code == 404:
       raise UserNotFound(f"User '{user}' not found.")
+
+  def get_profile(self, user : str) -> None:
+    """
+    Requests to Scratch API for profile extra info.
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+    
+    Params: user - Mandatory. Put the username in str format.
+    """
 
     info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)
     self.profile_response_object = info
@@ -121,18 +128,30 @@ class get_user_extra:
       self.pfp = f"https://cdn2.scratch.mit.edu/get_image/user/{self.creator_id}_90x90.png?v="
       self.id = info["id"] #WAT IS THIS
 
-
-
-"""   
-    info = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count/",headers=headers)#working on
-    self.messages_response_object = info
-    self.messages_response_time = info.elapsed.total_seconds()
-    self.messages_status_code = info.status_code
+  def get_followers(self, user : str, offset : int = 0) -> None:
+    """
+    Requests to Scratch API for followers
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
-    if self.messages_status_code == 200:
-      info = info.json()
-      self.messages = info["count"]
-      
-    elif self.messages_status_code == 404:
-      raise UserNotFound(f"User '{user}' not found.")
-"""
+    Params: 
+    user - Mandatory. Put the username in str format.
+    offset - Optional(default=0). Offset the list of followers by this number. (int format)
+    
+    """
+    responses = []
+    followers = []
+    print("start")
+    while True:
+      x = requests.get(f"https://api.scratch.mit.edu/users/{user}/followers/?limit=40&offset={offset}")
+      responses.append(x)
+      x = x.json()
+      offset += 40
+      print(len(followers))
+      for I in x:
+        followers.append(I["username"])
+
+      if len(x) != 40:
+        self.followers_response_object = responses
+        self.followers = followers
+        self.follower_count = len(followers)
+        break

@@ -1,3 +1,5 @@
+#MAKING GET_USER_EXTRA.GET_FOLLOWS! NOT TESTED
+
 #from ScraGet import project, user, forum, studios, frontpage
 from ScraGet import ScraGet
 import time
@@ -17,12 +19,9 @@ cloud = ScraGet.cloud()
 #https://scratch.mit.edu/projects/612229554/
 @cloud.scan(ID="612229554",delay=1,NewThread=False)
 def hello(change):
-  print(change.var)
+  print(change.user)
   cloud.stop = True
 
-time.sleep(5)
-cloud.stop = True #stops the new thread
-time.sleep(2)
 #print(cloud.thread.is_alive())
 print("----------------------")
 """
@@ -57,9 +56,9 @@ lol = ScraGet.get_studio()
 lol.updateScratch(208695)
 print(lol.title)
 
-
+"""
 user = ScraGet.get_user_extra()
-user.updateScratch("griffpatch_tutor")
+user.get_profile("griffpatch_tutor")
 print(user.label_name,user.profile_status_code,"\n",
       user.featured_project_data,
       user.featured_project_id,
@@ -72,7 +71,10 @@ print(user.label_name,user.profile_status_code,"\n",
       user.pfp,
       user.id)
 
+user.get_followers("Ankit_Anmol")
+print(user.follower_count)
 
+"""
 project = ScraGet.get_project()
 project.updateScratch(476678019)
 print(project.images,"\n",project.id)

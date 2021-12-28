@@ -1,6 +1,6 @@
 import requests, time, json
 from ScraGet.Exceptions import ProjectNotFound, InvalidValue
-from threading import Thread, main_thread
+from threading import Thread
 
 headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
 
