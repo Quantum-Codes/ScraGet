@@ -155,3 +155,37 @@ class get_user_extra:
         self.followers = followers
         self.follower_count = len(followers)
         break
+
+  def check_user(self, user : str) -> None:
+    """
+    Requests to Scratch API for whether the username exists or not. It can also be used to check if username is valid or not!!
+    
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+    
+    Params: user - Mandatory. Put the username in str format.
+    """
+
+    
+    info = requests.get(f"https://scratch.mit.edu/accounts/check_username/{user}/")
+    self.user_response_object = info
+    self.user_response_time = info.elapsed.total_seconds()
+    self.user_status_code = info.status_code
+    
+    if self.user_status_code == 200:
+      info = info.json()[0]
+      self.username = info["username"]
+      if "exists" in info["msg"]:
+        self.valid = True
+        self.taken = True
+      elif "invalid" in info["msg"]:
+        self.valid = False
+        self.taken = False
+      else:
+        self.valid = True
+        self.taken = False
+        
+      
+    elif self.user_status_code == 404:
+      self.username = user
+      self.valid = False
+      self.taken = False

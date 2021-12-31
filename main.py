@@ -3,6 +3,13 @@
 #from ScraGet import project, user, forum, studios, frontpage
 from ScraGet import ScraGet
 import time
+user = ScraGet.get_user_extra()
+
+for I in ("me","you","h","hajajsjska","?!"):
+  user.check_user(I)
+  print(user.username,
+       user.valid,
+       user.taken)
 """
 user = ScraGet.get_user()
 user.updateScratch(100)
@@ -14,6 +21,7 @@ project.updateCloud("431041540")
 print(len(project.cloud_data))
 print("\n")
 """
+"""
 cloud = ScraGet.cloud()
 #542800922
 #https://scratch.mit.edu/projects/612229554/
@@ -24,6 +32,7 @@ def hello(change):
 
 #print(cloud.thread.is_alive())
 print("----------------------")
+"""
 """
 Frontpage = ScraGet.get_frontpage()
 self = ScraGet.get_frontpage()
@@ -57,6 +66,7 @@ lol.updateScratch(208695)
 print(lol.title)
 
 """
+"""
 user = ScraGet.get_user_extra()
 user.get_profile("griffpatch_tutor")
 print(user.label_name,user.profile_status_code,"\n",
@@ -73,7 +83,7 @@ print(user.label_name,user.profile_status_code,"\n",
 
 user.get_followers("Ankit_Anmol")
 print(user.follower_count)
-
+"""
 """
 project = ScraGet.get_project()
 project.updateScratch(476678019)
