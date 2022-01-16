@@ -1,4 +1,5 @@
 import requests
+from typing import Union
 from ScraGet.Exceptions import UserNotFound
 headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
 #"https://scratch.mit.edu/discuss/topic/96414/?page=11#post-1624859"
@@ -164,8 +165,6 @@ class get_user_extra:
     
     Params: user - Mandatory. Put the username in str format.
     """
-
-    
     info = requests.get(f"https://scratch.mit.edu/accounts/check_username/{user}/")
     self.user_response_object = info
     self.user_response_time = info.elapsed.total_seconds()
@@ -184,7 +183,6 @@ class get_user_extra:
         self.valid = True
         self.taken = False
         
-      
     elif self.user_status_code == 404:
       self.username = user
       self.valid = False

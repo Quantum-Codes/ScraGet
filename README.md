@@ -5,7 +5,7 @@
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/ScraGet.svg)](https://pypi.python.org/pypi/ScraGet/)
 
 ScraGet - A Scratch API package for Python<br>
-This is a package that makes it easy to get data form:.<br>
+This is a package that makes it easy to get data form:<br>
 1. Scratch -- Made by [Scratch developers](https://github.com/LLK/scratch-rest-api)<br>
 2. ScratchDB -- Made by [@DatOneLefty](https://Scratch.mit.edu/users/DatOneLefty)<br>
 
@@ -22,6 +22,7 @@ You don't need to Memorize any links!<br><br>
 `pip install ScraGet`<br>
 
 ## Docs: https://github.com/Quantum-Codes/ScraGet/wiki
+Some example usages given in the docs!
 
 ## Basic usage:
 ### Get user ID from scratch

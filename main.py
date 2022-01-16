@@ -1,8 +1,10 @@
-#MAKING GET_USER_EXTRA.GET_FOLLOWS! NOT TESTED
-
-#from ScraGet import project, user, forum, studios, frontpage
+#need to make user.get_user_extras.get_comments
 from ScraGet import ScraGet
 import time
+comment = ScraGet.project_comments()
+comment.get_comments(476678019, count = 2, author = "")
+print(comment.comments)
+"""
 user = ScraGet.get_user_extra()
 
 for I in ("me","you","h","hajajsjska","?!"):
@@ -10,6 +12,7 @@ for I in ("me","you","h","hajajsjska","?!"):
   print(user.username,
        user.valid,
        user.taken)
+"""
 """
 user = ScraGet.get_user()
 user.updateScratch(100)

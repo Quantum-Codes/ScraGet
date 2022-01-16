@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="ScraGet",
-    version="0.2.2",
+    version="0.2.3",
     #author="QuantumCodes",
     #author_email="author@example.com",
     description="A package that makes interacting with Scratch API easier",
@@ -27,5 +27,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.6'
 )
