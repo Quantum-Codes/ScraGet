@@ -96,10 +96,10 @@ class project_comments:
     `count` - Optional(default=40). Input how many comments you need in *int* format
     """
     if author == "":
-      self.author  = requests.get(f"https://api.scratch.mit.edu/projects/{ID}")
-      self.author_status_code = self.author.status_code
+      self.author_response_object  = requests.get(f"https://api.scratch.mit.edu/projects/{ID}")
+      self.author_status_code = self.author_response_object.status_code
       if self.author_status_code == 200:
-        self.author = self.author.json()["author"]["username"]
+        self.author = self.author_response_object.json()["author"]["username"]
       else:
         raise ProjectNotFound(f"Project with ID {ID} does not exist.")
     else:

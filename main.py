@@ -2,8 +2,13 @@
 from ScraGet import ScraGet
 import time
 comment = ScraGet.project_comments()
-comment.get_comments(476678019, count = 2, author = "")
-print(comment.comments)
+comment.get_comments(476678019, count = 2, author = "Ankit_Anmol")
+print(comment.author,
+#comment.author_status_code, #will only be returned if you didn't enter the author parameter
+#comment.author_response_object, #will be added in v0.2.4... This will only be returned if you didnt fill author parameter
+
+comment.comments,
+comment.response_objects)
 """
 user = ScraGet.get_user_extra()
 
