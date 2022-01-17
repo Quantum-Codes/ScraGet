@@ -1,6 +1,7 @@
 #need to make user.get_user_extras.get_comments
 from ScraGet import ScraGet
 import time
+"""
 comment = ScraGet.project_comments()
 comment.get_comments(476678019, count = 2, author = "Ankit_Anmol")
 print(comment.author,
@@ -10,8 +11,12 @@ print(comment.author,
 comment.comments,
 comment.response_objects)
 """
+
 user = ScraGet.get_user_extra()
 
+user.get_projects("Ankit_Anmol")
+print(len(user.projects))
+"""
 for I in ("me","you","h","hajajsjska","?!"):
   user.check_user(I)
   print(user.username,

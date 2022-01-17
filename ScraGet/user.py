@@ -141,7 +141,6 @@ class get_user_extra:
     """
     responses = []
     followers = []
-    print("start")
     while True:
       x = requests.get(f"https://api.scratch.mit.edu/users/{user}/followers/?limit=40&offset={offset}")
       responses.append(x)
@@ -187,3 +186,19 @@ class get_user_extra:
       self.username = user
       self.valid = False
       self.taken = False
+  def get_projects(self, user : str, index: Union[int,str] = None) -> None:
+    """
+    Requests to Scratch API for list of projects.
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+    
+    **Params**: `user` - Mandatory. Put the username in str format.
+    """
+
+    info = requests.get(f"https://api.scratch.mit.edu/users/Ankit_Anmol/projects/?limit=40",headers=headers)
+    self.projects_response_object = info
+    self.projects_status_code = info.status_code
+    self.projects_response_time = info.elapsed.total_seconds()
+    
+    if self.projects_status_code == 200:
+      info = info.json()
+      self.projects = info
