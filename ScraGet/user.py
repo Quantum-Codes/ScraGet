@@ -139,21 +139,20 @@ class get_user_extra:
     offset - Optional(default=0). Offset the list of followers by this number. (int format)
     
     """
-    responses = []
-    followers = []
+    self.followers_response_object = []
+    self.followers = []
     while True:
       x = requests.get(f"https://api.scratch.mit.edu/users/{user}/followers/?limit=40&offset={offset}")
-      responses.append(x)
+      self.followers_response_object.append(x)
       x = x.json()
       offset += 40
-      print(len(followers))
       for I in x:
-        followers.append(I["username"])
+        self.followers.append(I["username"])
 
       if len(x) != 40:
-        self.followers_response_object = responses
-        self.followers = followers
-        self.follower_count = len(followers)
+        #self.followers_response_object = responses
+        #self.followers = followers
+        self.follower_count = len(self.followers)
         break
 
   def check_user(self, user : str) -> None:
