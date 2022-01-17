@@ -129,7 +129,7 @@ class get_user_extra:
       self.pfp = f"https://cdn2.scratch.mit.edu/get_image/user/{self.creator_id}_90x90.png?v="
       self.id = info["id"] #WAT IS THIS
 
-  def get_followers(self, user : str, offset : int = 0) -> None:
+  def get_followers(self, user : str, offset : Union[int,str] = 0) -> None:
     """
     Requests to Scratch API for followers
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
@@ -150,8 +150,6 @@ class get_user_extra:
         self.followers.append(I["username"])
 
       if len(x) != 40:
-        #self.followers_response_object = responses
-        #self.followers = followers
         self.follower_count = len(self.followers)
         break
 
@@ -185,19 +183,23 @@ class get_user_extra:
       self.username = user
       self.valid = False
       self.taken = False
-  def get_projects(self, user : str, index: Union[int,str] = None) -> None:
+  def get_projects(self, user : str, offset: Union[int,str] = None) -> None:
     """
     Requests to Scratch API for list of projects.
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
     **Params**: `user` - Mandatory. Put the username in str format.
     """
+    self.projects_response_object = []
+    self.projects = []
+    while True:
+      x = requests.get(f"https://api.scratch.mit.edu/users/{user}/followers/?limit=40&offset={offset}")
+      self.projects_response_object.append(x)
+      x = x.json()
+      offset += 40
+      for I in x:
+        self.projects.append(I["username"])
 
-    info = requests.get(f"https://api.scratch.mit.edu/users/Ankit_Anmol/projects/?limit=40",headers=headers)
-    self.projects_response_object = info
-    self.projects_status_code = info.status_code
-    self.projects_response_time = info.elapsed.total_seconds()
-    
-    if self.projects_status_code == 200:
-      info = info.json()
-      self.projects = info
+      if len(x) != 40:
+        self.project_count = len(self.projects)
+        break
