@@ -1,6 +1,7 @@
 import requests, time, json
 from ScraGet.Exceptions import ProjectNotFound, InvalidValue
 from threading import Thread
+from typing import Union
 
 headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
 
@@ -8,14 +9,14 @@ class get_cloud_data:
   def __init__(self):
     pass
   
-  def updateCloud(self, ID : str, limit : str= "10", offset : str="0") -> None:
+  def updateCloud(self, ID : Union[str,int], limit : Union[str,int]= "10", offset : Union[str,int]="0") -> None:
     """
     Requests to Scratch API for clouddata.
 
-    Params:
-      ID - Mandatory. Put the project ID in str format.
-      limit - Optional (Default:10) Specify number of logs to be returned in str format.
-      offset - Optional (Default:0) Specify the offset for each log item in str format.
+    **Params**:\n
+      `ID` - Mandatory. Put the project ID in *str* or *int* format.\n
+      `limit` - Optional (Default=10) Specify number of logs to be returned in *str* or *int* format.\n
+      `offset` - Optional (Default=0) Specify the offset for each log item in *str* or *int* format.
   """
     if limit.lower() == "all":
       limit = "0"
@@ -33,14 +34,14 @@ class cloud:
   def __init__(self):
     self.stop = False
   
-  def scan(self, ID: str, delay: float = 1.0, NewThread: bool = True) -> None:
+  def scan(self, ID: Union[str,int], delay: Union[float,int] = 1.0, NewThread: bool = True) -> None:
     """
     Scans clouddata continuously every few seconds (duration to be defined by you while making the cloud class) for any changes.
 
-    Params:
-      ID - Mandatory. Put project ID in str format.
-      delay - Optional(default=1.0). Put the time delay between 2 scan updates in float format. Minimum: 0.1 secs
-      NewThread - Optional(default=True). Specify Ture if you need to run in a separate thread, specify False if you need to run in main thread. (bool format)
+    **Params**:\n
+      `ID` - Mandatory. Put project ID in *str* or *int* format.\n
+      `delay` - Optional(default=1.0). Put the time delay between 2 scan updates in *float* or *int* format. Minimum: 0.1 secs.\n
+      `NewThread` - Optional(default=True). Specify *True* if you need to run in a separate thread, specify *False* if you need to run in main thread. (*bool* format).
     """
 
       

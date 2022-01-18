@@ -10,7 +10,7 @@ class get_post:
     """
     Requests to ScratchDB API made by DatOneLefty for post data.
 
-    Params: ID - Mandatory. Put the post ID in str format.
+    **Params**: `ID` - Mandatory. Put the post ID in *str* or *int* format.
     """
     info = requests.get(f"https://scratchdb.lefty.one/v3/forum/post/info/{ID}")
     self.response_object = info
@@ -49,11 +49,11 @@ class get_topic:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,ID : str) -> None:
+  def updateScratchDB(self,ID : Union[str,int]) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for topic data.
 
-    Params: ID - Mandatory. Put the topic ID in str or int format.
+    **Params**: `ID` - Mandatory. Put the topic ID in *str* or *int* format.
     """
 
     info = requests.get(f"https://scratchdb.lefty.one/v3/forum/topic/info/{ID}")
@@ -71,4 +71,4 @@ class get_topic:
       self.post_count = info["post_count"]
     
     elif self.status_code == 404:
-      raise TopicNotFound(f"Topic with id '{str(ID)}' not found.")
+      raise TopicNotFound(f"Topic with id '{ID}' not found.")
