@@ -14,7 +14,7 @@ class get_cloud_data:
 
     Params:
       ID - Mandatory. Put the project ID in str format.
-      limit - Optional (Default:10) Specify number of logs to be returned in str format. Specify: "all" to return all log items.
+      limit - Optional (Default:10) Specify number of logs to be returned in str format.
       offset - Optional (Default:0) Specify the offset for each log item in str format.
   """
     if limit.lower() == "all":

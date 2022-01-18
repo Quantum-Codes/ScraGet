@@ -8,13 +8,12 @@ class get_project:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,ID : str) -> None:
+  def updateScratchDB(self,ID : Union[str,int]) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for project data.
 
-    Params: ID - Mandatory. Put the project ID in str format.
+    **Params**: `ID` - Mandatory. Put the project ID in *str* or *int* format.
     """
-
     info = requests.get(f"https://scratchdb.lefty.one/v3/project/info/{ID}")
     self.response_object = info
     self.response_time = info.elapsed.total_seconds()
@@ -44,13 +43,13 @@ class get_project:
       self.metadata = info["metadata"]
     
     elif self.status_code == 404:
-      raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")
+      raise ProjectNotFound(f"Project with id '{ID}' not found.")
     
-  def updateScratch(self, ID : str) -> None:
+  def updateScratch(self, ID : Union[str,int]) -> None:
     """
     Requests to Scratch API for project data.
 
-    Params: ID - Mandatory. Put the project ID in str format.
+    **Params**: `ID` - Mandatory. Put the project ID in *str* or *int* format.
     """
 
     info = requests.get(f"https://api.scratch.mit.edu/projects/{ID}",headers=headers)
@@ -78,7 +77,7 @@ class get_project:
       self.remix = info["remix"]
     
     elif self.status_code == 404:
-      raise ProjectNotFound(f"Project with id '{str(ID)}' not found.")
+      raise ProjectNotFound(f"Project with id '{ID}' not found.")
 
 
 class project_comments:

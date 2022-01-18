@@ -1,11 +1,12 @@
-import requests
+import requests #DOING THIS PAGE
+from typing import Union
 from ScraGet.Exceptions import PostNotFound, TopicNotFound
 
 class get_post:
   def __init__(self):
     pass
   
-  def updateScratchDB(self,ID : str) -> None:
+  def updateScratchDB(self,ID : Union[str,int]) -> None:
     """
     Requests to ScratchDB API made by DatOneLefty for post data.
 

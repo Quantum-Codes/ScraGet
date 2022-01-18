@@ -1,4 +1,5 @@
 import requests
+from typing import Union
 from ScraGet.Exceptions import StudioNotFound
 
 headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"}
@@ -7,11 +8,11 @@ class get_studio:
   def __init__(self):
     pass
   
-  def updateScratch(self,ID : str) -> None:
+  def updateScratch(self,ID : Union[str,int]) -> None:
     """
     Requests to Scratch API for studio data.
 
-    Params: ID - Mandatory. Put the studio ID in str format.
+    Params: ID - Mandatory. Put the studio ID in *str* or *int* format.
     """
 
     info = requests.get(f"https://api.scratch.mit.edu/studios/{ID}",headers=headers)
@@ -36,4 +37,4 @@ class get_studio:
       self.stats = info["stats"]
     
     elif self.status_code == 404:
-      raise StudioNotFound(f"Studio with id '{str(ID)}' not found.")
+      raise StudioNotFound(f"Studio with id '{ID}' not found.")

@@ -14,7 +14,7 @@ comment.response_objects)
 
 user = ScraGet.get_user_extra()
 
-user.get_projects("meetcomm_uwu")
+user.get_projects("meetcomm_uwu") #this user had accurately 40 projects lol
 print(len(user.projects),"\n",user.projects_response_object)
 
 user.get_followers("meetcomm_uwu")
@@ -31,12 +31,13 @@ user = ScraGet.get_user()
 user.updateScratch(100)
 print(user.updateScratch.__annotations__)
 print(user.id)
+"""
 
 project = ScraGet.get_cloud_data()
-project.updateCloud("431041540")
+project.updateCloud("612229554","all")
 print(len(project.cloud_data))
 print("\n")
-"""
+
 """
 cloud = ScraGet.cloud()
 #542800922
@@ -62,12 +63,14 @@ print(self.response_object)
 #self.featured_studios
 #self.top_loved
 #self.featured_projects
-
+"""
+"""
 #from ScraGet import ScraGet #import package
 studios = ScraGet.get_studio() #create object
-studios.updateScratch(28380734) #update data
+studios.updateScratch(2830734) #update data
 print(studios.host_id) #print required info from data*
-
+"""
+"""
 
 data = ["hello"]
 
