@@ -12,7 +12,8 @@ class get_user:
     """
     Requests to ScratchDB API made by DatOneLefty for user data.
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
-   P arams: user - Mandatory. Put the username in str format.
+    
+    **Params**: `user` - Mandatory. Put the username in *str* format.
     """
 
     info = requests.get(f"https://scratchdb.lefty.one/v3/user/info/{user}")
@@ -38,13 +39,14 @@ class get_user:
       self.stats = info["statistics"]
     
     elif self.status_code == 404:
-      raise UserNotFound("User '{user}' not found.")
+      raise UserNotFound(f"User '{user}' not found.")
 
   def updateScratch(self, user: str) -> None:
     """
-    Requests to Scratch API for user data .
-    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.    
-    Params: user - Mandatory. Put the username in str format.
+    Requests to Scratch API for user data.
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+    
+    **Params**: `user` - Mandatory. Put the username in *str* format.
     """
 
     info = requests.get(f"https://api.scratch.mit.edu/users/{user}",headers = headers)
@@ -76,7 +78,7 @@ class get_user_extra:
     Requests to Scratch API for message count.
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
-    Params: user - Mandatory. Put the username in str format.
+    **Params**: `user` - Mandatory. Put the username in *str* format.
     """
 
     
@@ -97,7 +99,7 @@ class get_user_extra:
     Requests to Scratch API for profile extra info.
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
-    Params: user - Mandatory. Put the username in str format.
+    **Params**: `user` - Mandatory. Put the username in *str* format.
     """
 
     info = requests.get(f"https://scratch.mit.edu/site-api/users/all/{user}",headers=headers)
@@ -134,9 +136,9 @@ class get_user_extra:
     Requests to Scratch API for followers
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
-    Params: 
-    user - Mandatory. Put the username in str format.
-    offset - Optional(default=0). Offset the list of followers by this number. (int or str format)
+    **Params**:\n
+    `user` - Mandatory. Put the username in *str* format.\n
+    `offset` - Optional(default=0). Offset the list of followers by this number. (*int* or *str* format).
     
     """
     self.followers_response_object = []
@@ -156,11 +158,11 @@ class get_user_extra:
 
   def check_user(self, user : str) -> None:
     """
-    Requests to Scratch API for whether the username exists or not. It can also be used to check if username is valid or not!!
+    Requests to Scratch API for whether the username exists or not. It can also be used to check if username is valid or not!
     
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
-    Params: user - Mandatory. Put the username in str format.
+    **Params**: `user` - Mandatory. Put the username in *str* format.
     """
     info = requests.get(f"https://scratch.mit.edu/accounts/check_username/{user}/")
     self.user_response_object = info
@@ -184,14 +186,15 @@ class get_user_extra:
       self.username = user
       self.valid = False
       self.taken = False
+      
   def get_projects(self, user : str, offset: Union[int,str] = 0) -> None:
     """
     Requests to Scratch API for list of projects.
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
-    **Params**: 
-    `user` - Mandatory. Put the username in str format.
-    `offset` - Optional(default=0). Offset the list of followers by this number. (int or str format)
+    **Params**:\n
+    `user` - Mandatory. Put the username in *str* format.\n
+    `offset` - Optional(default=0). Offset the list of followers by this number. (*int* or *str* format).
     """
     self.projects_response_object = []
     self.projects = []

@@ -92,7 +92,7 @@ class project_comments:
     **Params:**\n
     `ID` - Mandatory. Put the project ID in *str* format.\n
     `author` - Optional(default=""). You may input the creator of the project in *str* if you know to reduce 1 request. If you don't put, the package will make an additional request to API for the creator. **Do not request to API yourself as package already does that.**\n
-    `count` - Optional(default=40). Input how many comments you need in *int* format
+    `count` - Optional(default=40). Input how many comments you need in *int* format.
     """
     if author == "":
       self.author_response_object  = requests.get(f"https://api.scratch.mit.edu/projects/{ID}")

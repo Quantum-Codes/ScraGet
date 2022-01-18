@@ -6,9 +6,9 @@ chars = list("•" + string.ascii_uppercase + string.digits + ".,!?/\|" + "'" + 
 class encoder:
   def encode(self,val : list) -> str:
     """
-    Input a list to encode. Example: encode(["hello"])
+    Input a *list* to encode. Example: `encode(["hello"])`.
     It can me a list of more than 1 item.
-    Returns a number in str format.
+    Returns a number in *str* format.
     """
     encoded = ""
     x = [str(i) for i in val]
@@ -21,9 +21,9 @@ class encoder:
 
   def decode(self,val : str) -> list:
     """
-    Decode any numeric value in str format such as: :"12300300"
+    Decode any numeric value in *str* format such as: :"12300300"
     Can decode any encoded value.
-    The encoded value must be encoded through ScraGet's encoder only.
+    The encoded value **must be encoded through ScraGet's encoder only**.
     """
     val = str(val)
     I = 0

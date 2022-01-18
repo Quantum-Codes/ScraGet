@@ -27,5 +27,5 @@ class get_frontpage:
       self.top_loved = info["community_most_loved_projects"]
       self.featured_projects = info["community_featured_projects"]
       
-    elif self.status_code == 404:
-      raise PageNotFound("There was a 404 error in API...")
+    else:
+      raise PageNotFound(f"Response {self.status_code}...")

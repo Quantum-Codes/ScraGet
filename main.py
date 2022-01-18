@@ -1,4 +1,4 @@
-#need to make user.get_user_extras.get_comments
+#GET FOLLOW,PROJECT, PUT ERROR USERNOTFOUND 
 from ScraGet import ScraGet
 import time
 """

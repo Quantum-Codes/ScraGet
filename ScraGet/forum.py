@@ -1,4 +1,4 @@
-import requests #DOING THIS PAGE
+import requests
 from typing import Union
 from ScraGet.Exceptions import PostNotFound, TopicNotFound
 
@@ -43,7 +43,7 @@ class get_post:
         self.deleted = info["topic"]["deleted"]
     
     elif self.status_code == 404:
-      raise PostNotFound(f"Post with id '{str(ID)}' not found.")
+      raise PostNotFound(f"Post with id '{ID}' not found.")
 
 class get_topic:
   def __init__(self):
