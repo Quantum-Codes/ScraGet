@@ -14,8 +14,11 @@ comment.response_objects)
 
 user = ScraGet.get_user_extra()
 
-user.get_projects("Ankit_Anmol")
-print(len(user.projects))
+user.get_projects("meetcomm_uwu")
+print(len(user.projects),"\n",user.projects_response_object)
+
+user.get_followers("meetcomm_uwu")
+print(user.follower_count,user.followers_response_object)
 """
 for I in ("me","you","h","hajajsjska","?!"):
   user.check_user(I)

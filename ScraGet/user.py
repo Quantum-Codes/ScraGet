@@ -136,7 +136,7 @@ class get_user_extra:
     
     Params: 
     user - Mandatory. Put the username in str format.
-    offset - Optional(default=0). Offset the list of followers by this number. (int format)
+    offset - Optional(default=0). Offset the list of followers by this number. (int or str format)
     
     """
     self.followers_response_object = []
@@ -144,14 +144,15 @@ class get_user_extra:
     while True:
       x = requests.get(f"https://api.scratch.mit.edu/users/{user}/followers/?limit=40&offset={offset}")
       self.followers_response_object.append(x)
-      x = x.json()
-      offset += 40
-      for I in x:
-        self.followers.append(I["username"])
+      if x.status_code == 200:
+        x = x.json()
+        for I in x:
+          self.followers.append(I["username"])
 
-      if len(x) != 40:
-        self.follower_count = len(self.followers)
-        break
+        if len(x) != 40:
+          self.follower_count = len(self.followers)
+          break
+      offset += 40
 
   def check_user(self, user : str) -> None:
     """
@@ -183,23 +184,25 @@ class get_user_extra:
       self.username = user
       self.valid = False
       self.taken = False
-  def get_projects(self, user : str, offset: Union[int,str] = None) -> None:
+  def get_projects(self, user : str, offset: Union[int,str] = 0) -> None:
     """
     Requests to Scratch API for list of projects.
     Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
     
-    **Params**: `user` - Mandatory. Put the username in str format.
+    **Params**: 
+    `user` - Mandatory. Put the username in str format.
+    `offset` - Optional(default=0). Offset the list of followers by this number. (int or str format)
     """
     self.projects_response_object = []
     self.projects = []
     while True:
-      x = requests.get(f"https://api.scratch.mit.edu/users/{user}/followers/?limit=40&offset={offset}")
+      x = requests.get(f"https://api.scratch.mit.edu/users/{user}/projects/?limit=40&offset={offset}")
       self.projects_response_object.append(x)
-      x = x.json()
-      offset += 40
-      for I in x:
-        self.projects.append(I["username"])
+      if x.status_code == 200:
+        x = x.json()
+        self.projects += x
 
-      if len(x) != 40:
-        self.project_count = len(self.projects)
-        break
+        if len(x) != 40:
+          self.project_count = len(self.projects)
+          break
+      offset += 40
