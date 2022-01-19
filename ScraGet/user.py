@@ -141,11 +141,11 @@ class get_user_extra:
     `offset` - Optional(default=0). Offset the list of followers by this number. (*int* or *str* format).
     
     """
-    self.followers_response_object = []
+    self.followers_response_objects = []
     self.followers = []
     while True:
       x = requests.get(f"https://api.scratch.mit.edu/users/{user}/followers/?limit=40&offset={offset}")
-      self.followers_response_object.append(x)
+      self.followers_response_objects.append(x)
       if x.status_code == 200:
         x = x.json()
         for I in x:
