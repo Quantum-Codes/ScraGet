@@ -39,7 +39,7 @@ class get_studio:
     elif self.status_code == 404:
       raise StudioNotFound(f"Studio with id '{ID}' not found.")
 
-class studio_comments:
+class studio_extras:
   def __init__(self):
     pass
   def get_comments(self, ID: Union[int,str], count: int = 40) -> None:
@@ -53,14 +53,14 @@ class studio_comments:
     `count` - Optional(default=40). Input how many comments you need in *int* format.
     """
     self.comments = []
-    self.response_objects = []
+    self.comments_response_objects = []
     if count > 0:
       req = int((count // -40))* -1
     else:
       raise ValueError(f"Values such as {count} is not allowed. Only natural numbers i.e. 1,2,3,4... allowed")
     for I in range(req):
       x = requests.get(f"https://api.scratch.mit.edu/studios/{ID}/comments/?offset={I*40}&limit=40")
-      self.response_objects.append(x)
+      self.comments_response_objects.append(x)
       if x.status_code == 200:
         if count >= 40:
           self.comments += x.json()
@@ -71,3 +71,28 @@ class studio_comments:
           break
       else:
         raise StudioNotFound(f"Studio with ID '{ID}' not found.")
+
+  def get_projects(self, ID : Union[str,int], offset: Union[int,str] = 0) -> None:
+    """
+    Requests to Scratch API for list of projects of studio.
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+    
+    **Params**:\n
+    `ID` - Mandatory. Put the studio ID in *str* or *int* format.\n
+    `offset` - Optional(default=0). Offset the list of projects by this number. (*int* or *str* format).
+    """
+    self.projects_response_objects = []
+    self.projects = []
+    while True:
+      x = requests.get(f"https://api.scratch.mit.edu/studios/{ID}/projects/?limit=40&offset={offset}")
+      self.projects_response_objects.append(x)
+      if x.status_code == 200:
+        x = x.json()
+        self.projects += x
+
+        if len(x) != 40:
+          self.project_count = len(self.projects)
+          break
+      else:
+        raise StudioNotFound(f"Studio '{ID}' doesn't exist.")
+      offset += 40

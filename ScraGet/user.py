@@ -196,13 +196,13 @@ class get_user_extra:
     
     **Params**:\n
     `user` - Mandatory. Put the username in *str* format.\n
-    `offset` - Optional(default=0). Offset the list of followers by this number. (*int* or *str* format).
+    `offset` - Optional(default=0). Offset the list of projects by this number. (*int* or *str* format).
     """
-    self.projects_response_object = []
+    self.projects_response_objects = []
     self.projects = []
     while True:
       x = requests.get(f"https://api.scratch.mit.edu/users/{user}/projects/?limit=40&offset={offset}")
-      self.projects_response_object.append(x)
+      self.projects_response_objects.append(x)
       if x.status_code == 200:
         x = x.json()
         self.projects += x

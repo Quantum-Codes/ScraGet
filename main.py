@@ -2,10 +2,9 @@ from ScraGet import ScraGet
 import time
 #change studio_comments class to studio_extras in studio and ScraGet file?????
 #change get_users_extrss similarly to user_extras??
-comment = ScraGet.studio_comments()
-comment.get_comments(30909939, count = 2)
-print(comment.comments,
-comment.response_objects)
+comment = ScraGet.studio_extras()
+comment.get_projects(30909939)
+print(comment.project_count,comment.projects_response_objects)
 
 """
 user = ScraGet.get_user_extra()
