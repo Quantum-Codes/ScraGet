@@ -154,6 +154,8 @@ class get_user_extra:
         if len(x) != 40:
           self.follower_count = len(self.followers)
           break
+      else:
+        raise UserNotFound(f"User '{user}' not found.")
       offset += 40
 
   def check_user(self, user : str) -> None:
@@ -208,4 +210,6 @@ class get_user_extra:
         if len(x) != 40:
           self.project_count = len(self.projects)
           break
+      else:
+        raise UserNotFound(f"User '{user}' doesn't exist.")
       offset += 40
