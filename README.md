@@ -22,9 +22,9 @@ You don't need to Memorize any links!<br><br>
 `pip install ScraGet`<br>
 
 ## Docs: https://github.com/Quantum-Codes/ScraGet/wiki
-Some example usages given in the docs!
+### Some example usages given in the docs!
 
-## Basic usage:
+# Basic usage:
 ### Get user ID from scratch
 ```python
 from ScraGet import ScraGet #import package
@@ -41,5 +41,5 @@ print(user.id) #print required info
 ```
 
 # Useful links
-Code not working as intended or have any questions? [Ask here](.)!<>
+Code not working as intended or have any questions? [Ask here](.)!<br>
 Any problems with the package or want to suggest a feature? Make an [issue](.)!
