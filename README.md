@@ -32,9 +32,19 @@ user = ScraGet.get_user() #create object
 user.updateScratch("griffpatch") #update data
 print(user.id) #print required info
 ```
-### Scan cloud variables for changes
+### Get user ID from scratchDB
+```python
+from ScraGet import ScraGet #import package
+user = ScraGet.get_user() #create object
+user.updateScratchDB("griffpatch") #update data
+print(user.id) #print required info
+```
+
+# Advanced
+### Scan cloud for any changes
 ```python
 from ScraGet import ScraGet
+
 Cloud = ScraGet.cloud()
 @Cloud.scan(ID="612229554",delay=1,NewThread=False) #params explained below
 def hello(change): #change parameter is automatically passed.
