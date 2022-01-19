@@ -6,15 +6,15 @@ comment = ScraGet.studio_extras()
 comment.get_projects(30909939)
 print(comment.project_count,comment.projects_response_objects)
 
-"""
-user = ScraGet.get_user_extra()
+
+user = ScraGet.user_extras()
 
 user.get_projects("meetcomm_uwu") #this user had accurately 40 projects lol
-print(len(user.projects),"\n",user.projects_response_object)
+print(len(user.projects),"\n",user.projects_response_objects)
 
 user.get_followers("meetcomm_uwu")
-print(user.follower_count,user.followers_response_object)
-"""
+print(user.follower_count,user.followers_response_objects)
+
 """
 for I in ("me","you","h","hajajsjska","?!"):
   user.check_user(I)
