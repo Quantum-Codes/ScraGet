@@ -1,16 +1,13 @@
 from ScraGet import ScraGet
 import time
-"""
-comment = ScraGet.project_comments()
-comment.get_comments(476678019, count = 2, author = "Ankit_Anmol")
-print(comment.author,
-#comment.author_status_code, #will only be returned if you didn't enter the author parameter
-#comment.author_response_object, #will be added in v0.2.4... This will only be returned if you didnt fill author parameter
-
-comment.comments,
+#change studio_comments class to studio_extras in studio and ScraGet file?????
+#change get_users_extrss similarly to user_extras??
+comment = ScraGet.studio_comments()
+comment.get_comments(30909939, count = 2)
+print(comment.comments,
 comment.response_objects)
-"""
 
+"""
 user = ScraGet.get_user_extra()
 
 user.get_projects("meetcomm_uwu") #this user had accurately 40 projects lol
@@ -18,6 +15,7 @@ print(len(user.projects),"\n",user.projects_response_object)
 
 user.get_followers("meetcomm_uwu")
 print(user.follower_count,user.followers_response_object)
+"""
 """
 for I in ("me","you","h","hajajsjska","?!"):
   user.check_user(I)
@@ -31,11 +29,11 @@ user.updateScratch(100)
 print(user.updateScratch.__annotations__)
 print(user.id)
 """
-
+"""
 project = ScraGet.get_cloud_data()
 project.updateCloud("612229554",200)
 print(len(project.cloud_data))
-
+"""
 """
 cloud = ScraGet.cloud()
 #542800922

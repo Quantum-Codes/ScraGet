@@ -38,3 +38,36 @@ class get_studio:
     
     elif self.status_code == 404:
       raise StudioNotFound(f"Studio with id '{ID}' not found.")
+
+class studio_comments:
+  def __init__(self):
+    pass
+  def get_comments(self, ID: Union[int,str], count: int = 40) -> None:
+    """
+    Requests to Scratch API for studio comments.
+    It makes multiple requests (gets 40 comments per request). Use it responsively. Don't try getting too many comments unless required.    
+    Look at https://github.com/Quantum-Codes/ScraGet/wiki for more info.
+    
+    **Params:**\n
+    `ID` - Mandatory. Put the studio ID in *str* format.\n
+    `count` - Optional(default=40). Input how many comments you need in *int* format.
+    """
+    self.comments = []
+    self.response_objects = []
+    if count > 0:
+      req = int((count // -40))* -1
+    else:
+      raise ValueError(f"Values such as {count} is not allowed. Only natural numbers i.e. 1,2,3,4... allowed")
+    for I in range(req):
+      x = requests.get(f"https://api.scratch.mit.edu/studios/{ID}/comments/?offset={I*40}&limit=40")
+      self.response_objects.append(x)
+      if x.status_code == 200:
+        if count >= 40:
+          self.comments += x.json()
+        elif count < 40:
+          self.comments += x.json()[:count]
+        count -= 40
+        if len(x.json()) < 40:
+          break
+      else:
+        raise StudioNotFound(f"Studio with ID '{ID}' not found.")

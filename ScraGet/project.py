@@ -108,7 +108,7 @@ class project_comments:
     if count > 0:
       req = int((count // -40))* -1
     else:
-      raise IndexError(f"Values such as {count} is not allowed. Only natural numbers i.e. 1,2,3,4... allowed")
+      raise ValueError(f"Values such as {count} is not allowed. Only natural numbers i.e. 1,2,3,4... allowed")
     for I in range(req):
       x = requests.get(f"https://api.scratch.mit.edu/users/{self.author}/projects/{ID}/comments/?offset={I*40}&limit=40")
       self.response_objects.append(x)
