@@ -69,7 +69,7 @@ class get_user:
     elif self.status_code == 404:
       raise UserNotFound(f"User '{user}' not found.")
 
-class get_user_extra:
+class user_extras:
   def __init__(self):
     pass
   
