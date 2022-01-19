@@ -18,8 +18,6 @@ class get_cloud_data:
       `limit` - Optional (Default=10) Specify number of logs to be returned in *str* or *int* format.\n
       `offset` - Optional (Default=0) Specify the offset for each log item in *str* or *int* format.
   """
-    if limit.lower() == "all":
-      limit = "0"
     info = requests.get(f"https://clouddata.scratch.mit.edu/logs?projectid={ID}&limit={limit}&offset={offset}")
     self.response_object = info
     self.response_time = info.elapsed.total_seconds()

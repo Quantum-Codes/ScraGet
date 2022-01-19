@@ -1,4 +1,3 @@
-#GET FOLLOW,PROJECT, PUT ERROR USERNOTFOUND 
 from ScraGet import ScraGet
 import time
 """
@@ -34,9 +33,8 @@ print(user.id)
 """
 
 project = ScraGet.get_cloud_data()
-project.updateCloud("612229554","all")
+project.updateCloud("612229554",200)
 print(len(project.cloud_data))
-print("\n")
 
 """
 cloud = ScraGet.cloud()
