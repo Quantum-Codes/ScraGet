@@ -46,7 +46,7 @@ print(user.id) #print required info
 from ScraGet import ScraGet
 
 Cloud = ScraGet.cloud()
-@Cloud.scan(ID="612229554",delay=1,NewThread=False) #params explained below
+@Cloud.scan(ID="612229554",delay=1,NewThread=False) #params explained in wiki
 def hello(change): #change parameter is automatically passed.
   print(change.var)
   Cloud.stop = True #this stops the scanning. Don't put if u want to keep scanning
