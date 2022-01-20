@@ -1,0 +1,2 @@
+#run = "bash main.sh"
+run = "python3 main.py"
