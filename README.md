@@ -4,6 +4,8 @@
 [![PyPI Latest Release](https://img.shields.io/pypi/v/ScraGet.svg)](https://pypi.org/project/ScraGet/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/ScraGet.svg)](https://pypi.python.org/pypi/ScraGet/)
 
+**No longer maintained.**
+
 ScraGet - A Scratch API package for Python<br>
 This is a package that makes it easy to get data form:<br>
 1. Scratch -- Made by [Scratch developers](https://github.com/LLK/scratch-rest-api)<br>
